@@ -28,12 +28,12 @@
             <h2 class="font-ti bi">Bilhete:</h2>
             <form class="font">
               <label for="nome">Nome:</label><br />
-              <input type="text" id="nome" />
-              <br />
+              <input type="text" id="nome" onkeyup="validaNome()" />
+              <div id="txtNome"></div>
               <br />
               <label for="email">Email:</label><br />
-              <input type="email" id="email" />
-              <br />
+              <input type="email" id="email" onkeyup="validaEmail()" />
+              <div id="txtEmail"></div>
               <br />
               <label for="assunto">Mensagem:</label><br />
               <textarea
@@ -41,11 +41,12 @@
                 id="assunto"
                 cols="60"
                 rows="5"
+                onkeyup="validaAssunto()"
               ></textarea>
-              <br />
+              <div id="txtAssunto"></div>
               <br />
               <div id="centralizar">
-                <button class="button">Enviar</button>
+                <button class="button" onclick="enviar()">Enviar</button>
               </div>
             </form>
           </div>
@@ -55,6 +56,7 @@
             <p class="font can-l">São Paulo - SP</p>
 
             <iframe
+              class="b-vi"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d467689.7972080137!2d-46.875493618239275!3d-23.68216038517882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce448183a461d1%3A0x9ba94b08ff335bae!2zU8OjbyBQYXVsbywgU1A!5e0!3m2!1spt-BR!2sbr!4v1666853105978!5m2!1spt-BR!2sbr"
               width="400"
               height="250"
@@ -62,6 +64,9 @@
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
+              onmousemove="mapaZoom()"
+              onmouseout="mapaNormal()"
+              id="mapa"
             ></iframe>
           </div>
         </div>
@@ -100,5 +105,6 @@
         </footer>
       </div>
     </div>
+    <script src="assets/js/script.js"></script>
   </body>
 </html>
